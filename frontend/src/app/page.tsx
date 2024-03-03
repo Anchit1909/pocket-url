@@ -1,5 +1,4 @@
-import LinkCard from "@/components/GeneratedLinks/LinkCard";
-import InputBox from "@/components/InputBox/InputBox";
+import HomePage from "@/components/HomePage/HomePage";
 
 export default function Home() {
   return (
@@ -11,10 +10,7 @@ export default function Home() {
             URL shortner
           </span>
         </div>
-        <InputBox />
-        <div className="space-y-4">
-          <LinkCard />
-        </div>
+        <HomePage />
       </div>
     </main>
   );

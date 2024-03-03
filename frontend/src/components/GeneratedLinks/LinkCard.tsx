@@ -3,24 +3,16 @@
 import * as React from "react";
 
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Copy, Trash2 } from "lucide-react";
-import { toast, useToast } from "@/components/ui/use-toast";
+import { Card, CardFooter } from "@/components/ui/card";
+import { Copy } from "lucide-react";
+import { toast } from "@/components/ui/use-toast";
 
-export default function LinkCard() {
-  const [savedLongLinkList, setSavedLongLinkList] = React.useState<string[]>(
-    []
-  );
-  const [savedShortLinkList, setSavedShortLinkList] = React.useState<string[]>(
-    []
-  );
+export default function LinkCard({
+  savedLongLinkList,
+  savedShortLinkList,
+  setSavedShortLinkList,
+  setSavedLongLinkList,
+}) {
   React.useEffect(() => {
     const savedShortLink = localStorage.getItem("shortLink");
     if (savedShortLink) {

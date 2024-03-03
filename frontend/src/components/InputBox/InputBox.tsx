@@ -16,7 +16,12 @@ import axios from "axios";
 import { Check, Copy } from "lucide-react";
 import { toast } from "../ui/use-toast";
 
-const InputBox = () => {
+const InputBox = ({
+  savedLongLinkList,
+  setSavedLongLinkList,
+  savedShortLinkList,
+  setSavedShortLinkList,
+}) => {
   const [longURL, setLongURL] = React.useState("");
   const [customURL, setCustomURL] = React.useState("");
   const [shortLink, setShortLink] = React.useState("");
@@ -31,6 +36,8 @@ const InputBox = () => {
       console.log("hey", response.data.short);
       if (response.data.short) {
         setShortLink(response.data.short);
+        setSavedShortLinkList([...savedShortLinkList, response.data.short]);
+        setSavedLongLinkList([...savedLongLinkList, longURL]);
         let savedShortLink = localStorage.getItem("shortLink");
         const savedLongLink = localStorage.getItem("longLink");
         let savedShortLinkArray;
@@ -76,6 +83,8 @@ const InputBox = () => {
 
   const emptyLink = () => {
     setShortLink("");
+    setLongURL("");
+    setCustomURL("");
   };
 
   return (
