@@ -24,9 +24,9 @@ const HomePage = () => {
   }, []);
   return (
     <div className="flex justify-center items-center flex-col space-y-8">
-      <div className="absolute w-[600px] h-[600px] bottom-[100px] bg-green-500/[6%] -z-10 rounded-full blur-3xl" />
-      <div className="absolute w-[600px] h-[600px] right-[300px] bg-red-500/[6%] -z-10 rounded-full blur-3xl" />
-      <div className="absolute w-[600px] h-[600px] left-[300px] bg-purple-700/[6%] -z-10 rounded-full blur-3xl" />
+      <div className="absolute w-[600px] h-[600px] bottom-[100px] bg-green-200/[20%] -z-10 rounded-full blur-3xl" />
+      <div className="absolute w-[600px] h-[600px] right-[300px] bg-red-200/[20%] -z-10 rounded-full blur-3xl" />
+      <div className="absolute w-[600px] h-[600px] left-[300px] bg-purple-200/[20%] -z-10 rounded-full blur-3xl" />
       <InputBox
         savedLongLinkList={savedLongLinkList}
         setSavedLongLinkList={setSavedLongLinkList}

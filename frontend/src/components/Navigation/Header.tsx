@@ -28,7 +28,7 @@ function Header() {
                     "tracking-tighter font-bold"
                   )}
                 >
-                  TinyURL
+                  PocketURL
                 </span>
               </div>
             </Link>
