@@ -45,6 +45,20 @@ export default function LinkCard() {
       });
   };
 
+  const handleDeleteCard = (index: number) => {
+    const updatedShortLinks = [...savedShortLinkList];
+    const updatedLongLinks = [...savedLongLinkList];
+
+    updatedShortLinks.splice(index, 1);
+    updatedLongLinks.splice(index, 1);
+
+    setSavedShortLinkList(updatedShortLinks);
+    setSavedLongLinkList(updatedLongLinks);
+
+    localStorage.setItem("shortLink", JSON.stringify(updatedShortLinks));
+    localStorage.setItem("longLink", JSON.stringify(updatedLongLinks));
+  };
+
   return (
     <>
       {savedShortLinkList.length > 0 ? (
@@ -72,7 +86,12 @@ export default function LinkCard() {
                   </p>
                 </div>
               </div>
-              <Button variant="destructive" size="sm" className="bg-red-500">
+              <Button
+                variant="destructive"
+                size="sm"
+                className="bg-red-500"
+                onClick={() => handleDeleteCard(index)}
+              >
                 Delete
               </Button>
             </CardFooter>
