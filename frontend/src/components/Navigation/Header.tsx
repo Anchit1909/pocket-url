@@ -1,6 +1,8 @@
 import { cn } from "@/lib/utils";
 import { IBM_Plex_Mono } from "next/font/google";
 import Link from "next/link";
+import Github from "../Icons/Github";
+import TwitterIcon from "../Icons/Twitter";
 
 const ibmPlexMono = IBM_Plex_Mono({
   variable: "--font-ibm",
@@ -31,10 +33,21 @@ function Header() {
               </div>
             </Link>
             <div className="hidden items-center space-x-4 sm:flex"></div>
-            <div className="flex justify-center items-center flex-row space-x-4">
-                {/* <button className="group mx-auto flex max-w-fit items-center justify-center space-x-2 rounded-full border border-black bg-black px-5 py-2 text-sm text-white transition-colors hover:bg-white hover:text-black font-default dark:bg-white dark:text-black dark:hover:bg-stone-800 dark:hover:text-white">
-                  <p>Hey</p>
-                </button> */}
+            <div className="flex justify-center items-center flex-row space-x-2">
+              <a
+                href="https://github.com/Anchit1909/shorten-url"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Github />
+              </a>
+              <a
+                href="https://twitter.com/anchit1909"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <TwitterIcon />
+              </a>
             </div>
           </div>
         </div>
