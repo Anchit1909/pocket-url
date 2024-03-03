@@ -14,6 +14,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import axios from "axios";
 import { Check, Copy } from "lucide-react";
+import { toast } from "../ui/use-toast";
 
 const InputBox = () => {
   const [longURL, setLongURL] = React.useState("");
@@ -60,6 +61,19 @@ const InputBox = () => {
     }
   };
 
+  const handleCopyShortLink = (shortLink: any) => {
+    navigator.clipboard
+      .writeText(shortLink)
+      .then(() => {
+        toast({
+          title: "Copied to clipboard!",
+        });
+      })
+      .catch((error) => {
+        console.error("Failed to copy short link: ", error);
+      });
+  };
+
   const emptyLink = () => {
     setShortLink("");
   };
@@ -78,7 +92,10 @@ const InputBox = () => {
             <Check color="#22c55e" />
             <p className="">{shortLink}</p>
             <div className="relative">
-              <div className="absolute w-6 h-6 bg-gray-200 opacity-400 rounded-full flex items-center justify-center">
+              <div
+                className="absolute w-6 h-6 bg-gray-200 opacity-400 rounded-full flex items-center justify-center hover:bg-gray-100"
+                onClick={() => handleCopyShortLink(shortLink)}
+              >
                 <Copy className="w-3 h-3" color="#374151" />
               </div>
             </div>
