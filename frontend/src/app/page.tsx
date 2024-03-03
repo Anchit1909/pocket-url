@@ -14,7 +14,6 @@ export default function Home() {
         <InputBox />
         <div className="space-y-4">
           <LinkCard />
-          <LinkCard />
         </div>
       </div>
     </main>

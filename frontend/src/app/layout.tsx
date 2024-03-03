@@ -5,6 +5,7 @@ import Header from "@/components/Navigation/Header";
 import Footer from "@/components/Navigation/Footer";
 import { cx } from "class-variance-authority";
 import { GeistSans } from "geist/font/sans";
+import { Toaster } from "@/components/ui/toaster";
 
 const inter = Inter({ variable: "--font-inter", subsets: ["latin"] });
 
@@ -39,6 +40,8 @@ export default function RootLayout({
       >
         <Header />
         <main>{children}</main>
+        <Toaster />
+
         <Footer />
       </body>
     </html>
