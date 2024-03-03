@@ -32,6 +32,19 @@ export default function LinkCard() {
     }
   }, []);
 
+  const handleCopyShortLink = (shortLink: any) => {
+    navigator.clipboard
+      .writeText(shortLink)
+      .then(() => {
+        toast({
+          title: "Copied to clipboard!",
+        });
+      })
+      .catch((error) => {
+        console.error("Failed to copy short link: ", error);
+      });
+  };
+
   return (
     <>
       {savedShortLinkList.length > 0 ? (
@@ -42,7 +55,10 @@ export default function LinkCard() {
                 <div className="flex space-x-2 justify-center">
                   <p className="text-blue-700 font-semibold">{shortLink}</p>
                   <div className="relative">
-                    <div className="absolute w-6 h-6 bg-gray-200 opacity-400 rounded-full flex items-center justify-center hover:bg-gray-100">
+                    <div
+                      className="absolute w-6 h-6 bg-gray-200 opacity-400 rounded-full flex items-center justify-center hover:bg-gray-100"
+                      onClick={() => handleCopyShortLink(shortLink)}
+                    >
                       <Copy className="w-3 h-3" color="#374151" />
                     </div>
                   </div>
