@@ -36,7 +36,6 @@ const InputBox = ({
   const [longURL, setLongURL] = React.useState("");
   const [customURL, setCustomURL] = React.useState("");
   const [shortLink, setShortLink] = React.useState("");
-
   const shortenLink = async () => {
     try {
       const url = "http://localhost:3000/api/v1/";
@@ -89,10 +88,14 @@ const InputBox = ({
           );
         }
       } else {
-        console.error("error");
+        toast({
+          title: "Something went wrong, please try again.",
+        });
       }
     } catch (error: any) {
-      console.error("Error:", error);
+      toast({
+        title: `${error.response.data.error}`,
+      });
     }
   };
 
