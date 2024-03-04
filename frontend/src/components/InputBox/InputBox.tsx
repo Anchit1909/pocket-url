@@ -93,9 +93,15 @@ const InputBox = ({
         });
       }
     } catch (error: any) {
-      toast({
-        title: `${error.response.data.error}`,
-      });
+      if (error.response.data.error) {
+        toast({
+          title: `${error.response.data.error}`,
+        });
+      } else {
+        toast({
+          title: "Something went wrong, please try again.",
+        });
+      }
     }
   };
 
