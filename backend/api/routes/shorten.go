@@ -29,7 +29,7 @@ type response struct {
 func ShortenURL(c *fiber.Ctx) error {
 	body := new(request)
 	if err:= c.BodyParser(&body); err!=nil {
-	return c.Status(fiber.StatusBadRequest).JSON(fiber.Map {"error":"cannot parse JSON"})
+	return c.Status(fiber.StatusBadRequest).JSON(fiber.Map {"error":"Cannot parse JSON"})
  }
 
  //implement rate limiting
@@ -76,7 +76,7 @@ func ShortenURL(c *fiber.Ctx) error {
 
  val, _ = r.Get(database.Ctx, id).Result()
  if val != "" {
-	return c.Status(fiber.StatusForbidden).JSON(fiber.Map {"error":"URL custom short is already in use",})
+	return c.Status(fiber.StatusForbidden).JSON(fiber.Map {"error":"Short URL is already in use, please try another one.",})
  }
 
  if body.Expiry == 0 {
