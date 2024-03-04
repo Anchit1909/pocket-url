@@ -7,12 +7,19 @@ import { Card, CardFooter } from "@/components/ui/card";
 import { Copy } from "lucide-react";
 import { toast } from "@/components/ui/use-toast";
 
+interface props {
+  savedLongLinkList: string[];
+  savedShortLinkList: string[];
+  setSavedShortLinkList: React.Dispatch<React.SetStateAction<string[]>>;
+  setSavedLongLinkList: React.Dispatch<React.SetStateAction<string[]>>;
+}
+
 export default function LinkCard({
   savedLongLinkList,
   savedShortLinkList,
   setSavedShortLinkList,
   setSavedLongLinkList,
-}) {
+}: props) {
   React.useEffect(() => {
     const savedShortLink = localStorage.getItem("shortLink");
     if (savedShortLink) {

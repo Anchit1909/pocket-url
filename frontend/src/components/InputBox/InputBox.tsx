@@ -16,12 +16,19 @@ import axios from "axios";
 import { Check, Copy } from "lucide-react";
 import { toast } from "../ui/use-toast";
 
+interface props {
+  savedLongLinkList: string[];
+  savedShortLinkList: string[];
+  setSavedShortLinkList: React.Dispatch<React.SetStateAction<string[]>>;
+  setSavedLongLinkList: React.Dispatch<React.SetStateAction<string[]>>;
+}
+
 const InputBox = ({
   savedLongLinkList,
   setSavedLongLinkList,
   savedShortLinkList,
   setSavedShortLinkList,
-}) => {
+}: props) => {
   const [longURL, setLongURL] = React.useState("");
   const [customURL, setCustomURL] = React.useState("");
   const [shortLink, setShortLink] = React.useState("");
