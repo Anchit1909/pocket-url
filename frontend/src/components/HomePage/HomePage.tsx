@@ -11,6 +11,7 @@ const HomePage = () => {
   const [savedShortLinkList, setSavedShortLinkList] = React.useState<string[]>(
     []
   );
+  const [savedDateList, setSavedDateList] = React.useState<string[]>([]);
 
   React.useEffect(() => {
     const savedShortLink = localStorage.getItem("shortLink");
@@ -20,6 +21,10 @@ const HomePage = () => {
     const savedLongLink = localStorage.getItem("longLink");
     if (savedLongLink) {
       setSavedLongLinkList(JSON.parse(savedLongLink));
+    }
+    const savedDate = localStorage.getItem("savedDate");
+    if (savedDate) {
+      setSavedDateList(JSON.parse(savedDate));
     }
   }, []);
   return (
@@ -32,6 +37,8 @@ const HomePage = () => {
         setSavedLongLinkList={setSavedLongLinkList}
         savedShortLinkList={savedShortLinkList}
         setSavedShortLinkList={setSavedShortLinkList}
+        savedDateList={savedDateList}
+        setSavedDateList={setSavedDateList}
       />
       <div className="space-y-4">
         <LinkCard
@@ -39,6 +46,8 @@ const HomePage = () => {
           savedShortLinkList={savedShortLinkList}
           setSavedShortLinkList={setSavedShortLinkList}
           setSavedLongLinkList={setSavedLongLinkList}
+          savedDateList={savedDateList}
+          setSavedDateList={setSavedDateList}
         />
       </div>
     </div>

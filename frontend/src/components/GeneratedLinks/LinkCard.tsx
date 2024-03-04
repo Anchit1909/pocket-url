@@ -10,15 +10,19 @@ import { toast } from "@/components/ui/use-toast";
 interface props {
   savedLongLinkList: string[];
   savedShortLinkList: string[];
+  savedDateList: string[];
   setSavedShortLinkList: React.Dispatch<React.SetStateAction<string[]>>;
   setSavedLongLinkList: React.Dispatch<React.SetStateAction<string[]>>;
+  setSavedDateList: React.Dispatch<React.SetStateAction<string[]>>;
 }
 
 export default function LinkCard({
   savedLongLinkList,
   savedShortLinkList,
-  setSavedShortLinkList,
+  savedDateList,
   setSavedLongLinkList,
+  setSavedShortLinkList,
+  setSavedDateList,
 }: props) {
   React.useEffect(() => {
     const savedShortLink = localStorage.getItem("shortLink");
@@ -28,6 +32,10 @@ export default function LinkCard({
     const savedLongLink = localStorage.getItem("longLink");
     if (savedLongLink) {
       setSavedLongLinkList(JSON.parse(savedLongLink));
+    }
+    const savedDate = localStorage.getItem("savedDate");
+    if (savedDate) {
+      setSavedDateList(JSON.parse(savedDate));
     }
   }, []);
 
@@ -47,15 +55,19 @@ export default function LinkCard({
   const handleDeleteCard = (index: number) => {
     const updatedShortLinks = [...savedShortLinkList];
     const updatedLongLinks = [...savedLongLinkList];
+    const updatedSavedDate = [...savedDateList];
 
     updatedShortLinks.splice(index, 1);
     updatedLongLinks.splice(index, 1);
+    updatedSavedDate.splice(index, 1);
 
     setSavedShortLinkList(updatedShortLinks);
     setSavedLongLinkList(updatedLongLinks);
+    setSavedDateList(updatedSavedDate);
 
     localStorage.setItem("shortLink", JSON.stringify(updatedShortLinks));
     localStorage.setItem("longLink", JSON.stringify(updatedLongLinks));
+    localStorage.setItem("savedDate", JSON.stringify(updatedSavedDate));
 
     toast({
       title: "Link removed!",
@@ -81,7 +93,9 @@ export default function LinkCard({
                   </div>
                 </div>
                 <div className="flex flex-row space-x-0 sm:space-x-3">
-                  <p className="font-regular hidden sm:inline">Jan 25</p>
+                  <p className="font-regular hidden sm:inline">
+                    {savedDateList[index]}
+                  </p>
                   <span className="hidden sm:inline">•</span>
                   <p className="font-medium">
                     {" "}

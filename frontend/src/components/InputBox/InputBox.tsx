@@ -19,15 +19,19 @@ import { toast } from "../ui/use-toast";
 interface props {
   savedLongLinkList: string[];
   savedShortLinkList: string[];
+  savedDateList: string[];
   setSavedShortLinkList: React.Dispatch<React.SetStateAction<string[]>>;
   setSavedLongLinkList: React.Dispatch<React.SetStateAction<string[]>>;
+  setSavedDateList: React.Dispatch<React.SetStateAction<string[]>>;
 }
 
 const InputBox = ({
   savedLongLinkList,
-  setSavedLongLinkList,
   savedShortLinkList,
+  savedDateList,
+  setSavedLongLinkList,
   setSavedShortLinkList,
+  setSavedDateList,
 }: props) => {
   const [longURL, setLongURL] = React.useState("");
   const [customURL, setCustomURL] = React.useState("");
@@ -49,11 +53,15 @@ const InputBox = ({
         setShortLink(response.data.short);
         setSavedShortLinkList([...savedShortLinkList, response.data.short]);
         setSavedLongLinkList([...savedLongLinkList, longURL]);
+        setSavedDateList([...savedDateList, response.data.current_date]);
+
         let savedShortLink = localStorage.getItem("shortLink");
         const savedLongLink = localStorage.getItem("longLink");
+        const savedDate = localStorage.getItem("savedDate");
         let savedShortLinkArray;
         let savedLongLinkArray;
-        if (savedShortLink && savedLongLink) {
+        let savedDateArray;
+        if (savedShortLink && savedLongLink && savedDate) {
           savedShortLinkArray = JSON.parse(savedShortLink);
           localStorage.setItem(
             "shortLink",
@@ -64,12 +72,21 @@ const InputBox = ({
             "longLink",
             JSON.stringify([longURL, ...savedLongLinkArray])
           );
+          savedDateArray = JSON.parse(savedDate);
+          localStorage.setItem(
+            "savedDate",
+            JSON.stringify([response.data.current_date, ...savedDateArray])
+          );
         } else {
           localStorage.setItem(
             "shortLink",
             JSON.stringify([response.data.short])
           );
           localStorage.setItem("longLink", JSON.stringify([longURL]));
+          localStorage.setItem(
+            "savedDate",
+            JSON.stringify([response.data.current_date])
+          );
         }
       } else {
         console.error("error");
