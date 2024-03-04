@@ -49,6 +49,10 @@ export default function LinkCard({
 
     localStorage.setItem("shortLink", JSON.stringify(updatedShortLinks));
     localStorage.setItem("longLink", JSON.stringify(updatedLongLinks));
+
+    toast({
+      title: "Link removed!",
+    });
   };
 
   return (
