@@ -23,6 +23,7 @@ type response struct {
 	Expiry		time.Duration `json:"expiry"`
 	XRateRemaining		int		`json:"rate_limit"`
 	XRateLimitReset		time.Duration		`json:"rate_limit_reset"`
+	CurrentDate      string        `json:"current_date"`
 }
 
 func ShortenURL(c *fiber.Ctx) error {
@@ -94,6 +95,7 @@ func ShortenURL(c *fiber.Ctx) error {
 	Expiry:		body.Expiry,
 	XRateRemaining: 10,
 	XRateLimitReset: 30,
+	CurrentDate:     time.Now().Format("Jan 02"),
  }
 
  r2.Decr(database.Ctx, c.IP())
