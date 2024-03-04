@@ -66,7 +66,7 @@ export default function LinkCard({
     <>
       {savedShortLinkList.length > 0 ? (
         savedShortLinkList.map((shortLink, index) => (
-          <Card key={index} className="w-[450px]">
+          <Card key={index} className="w-[350px] sm:w-[450px]">
             <CardFooter className="flex justify-between items-center p-6">
               <div className="flex flex-col items-start justify-center">
                 <div className="flex space-x-2 justify-center">
@@ -80,9 +80,9 @@ export default function LinkCard({
                     </div>
                   </div>
                 </div>
-                <div className="flex flex-row space-x-3">
-                  <p className="font-regular">Jan 25</p>
-                  <span>•</span>
+                <div className="flex flex-row space-x-0 sm:space-x-3">
+                  <p className="font-regular hidden sm:inline">Jan 25</p>
+                  <span className="hidden sm:inline">•</span>
                   <p className="font-medium">
                     {" "}
                     {savedLongLinkList[index].substring(0, 25)}...

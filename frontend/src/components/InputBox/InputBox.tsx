@@ -99,7 +99,7 @@ const InputBox = ({
   };
 
   return (
-    <Card className="w-[450px]">
+    <Card className="w-[350px] sm:w-[450px]">
       <CardHeader>
         <CardTitle>Shorten Links</CardTitle>
         <CardDescription>Simplest URL shortner in the market</CardDescription>
