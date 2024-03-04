@@ -93,13 +93,14 @@ const InputBox = ({
         });
       }
     } catch (error: any) {
-      if (error.response.data.error) {
+      console.log("error", error);
+      if (error.message === "Network Error") {
         toast({
-          title: `${error.response.data.error}`,
+          title: "Something went wrong, please try again.",
         });
       } else {
         toast({
-          title: "Something went wrong, please try again.",
+          title: `${error.response.data.error}`,
         });
       }
     }
