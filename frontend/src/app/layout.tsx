@@ -1,13 +1,11 @@
 import type { Metadata } from "next";
-import { IBM_Plex_Mono, Inter, Poppins } from "next/font/google";
+import { IBM_Plex_Mono, Poppins } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Navigation/Header";
 import Footer from "@/components/Navigation/Footer";
 import { cx } from "class-variance-authority";
 import { GeistSans } from "geist/font/sans";
 import { Toaster } from "@/components/ui/toaster";
-
-const inter = Inter({ variable: "--font-inter", subsets: ["latin"] });
 
 const ibmPlexMono = IBM_Plex_Mono({
   variable: "--font-ibm",
@@ -35,9 +33,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={GeistSans.className}>
-      <body
-        className={cx(inter.variable, ibmPlexMono.variable, poppins.variable)}
-      >
+      <body className={cx(ibmPlexMono.variable, poppins.variable)}>
         <Header />
         <main>{children}</main>
         <Toaster />

@@ -19,7 +19,6 @@ const config = {
     },
     extend: {
       fontFamily: {
-        inter: ["var(--font-inter)"],
         poppins: ["var(--font-poppins)"],
         ibm: ["var(--font-ibm)", "system-ui", "sans-serif"],
       },
