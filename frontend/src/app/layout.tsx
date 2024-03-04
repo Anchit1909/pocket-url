@@ -33,7 +33,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={GeistSans.className}>
-      <body className={cx(ibmPlexMono.variable, poppins.variable)}>
+      <body
+        className={cx(
+          ibmPlexMono.variable,
+          poppins.variable,
+          "overflow-x-hidden"
+        )}
+      >
         <Header />
         <main>{children}</main>
         <Toaster />
