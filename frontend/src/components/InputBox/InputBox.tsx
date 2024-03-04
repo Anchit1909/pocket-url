@@ -57,12 +57,12 @@ const InputBox = ({
           savedShortLinkArray = JSON.parse(savedShortLink);
           localStorage.setItem(
             "shortLink",
-            JSON.stringify([...savedShortLinkArray, response.data.short])
+            JSON.stringify([response.data.short, ...savedShortLinkArray])
           );
           savedLongLinkArray = JSON.parse(savedLongLink);
           localStorage.setItem(
             "longLink",
-            JSON.stringify([...savedLongLinkArray, longURL])
+            JSON.stringify([longURL, ...savedLongLinkArray])
           );
         } else {
           localStorage.setItem(
