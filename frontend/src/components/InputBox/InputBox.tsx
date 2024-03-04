@@ -29,11 +29,15 @@ const InputBox = ({
   const shortenLink = async () => {
     try {
       const url = "http://localhost:3000/api/v1/";
-      const response = await axios.post(url, {
-        URL: longURL,
-        CustomShort: customURL,
+      const requestData = {
+        url: longURL,
+        short: customURL,
+      };
+      const response = await axios.post(url, requestData, {
+        headers: {
+          "Content-Type": "application/json",
+        },
       });
-      console.log("hey", response.data.short);
       if (response.data.short) {
         setShortLink(response.data.short);
         setSavedShortLinkList([...savedShortLinkList, response.data.short]);
