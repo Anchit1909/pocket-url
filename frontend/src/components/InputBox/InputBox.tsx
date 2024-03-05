@@ -38,7 +38,7 @@ const InputBox = ({
   const [shortLink, setShortLink] = React.useState("");
   const shortenLink = async () => {
     try {
-      const url = "https://pocket-url-i8fk.onrender.com";
+      const url = "https://pocket-url-idou.onrender.com";
       const requestData = {
         url: longURL,
         short: customURL,
@@ -47,6 +47,7 @@ const InputBox = ({
         headers: {
           "Content-Type": "application/json",
         },
+        withCredentials: true,
       });
       if (response.data.short) {
         setShortLink(response.data.short);
