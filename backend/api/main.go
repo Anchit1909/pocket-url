@@ -27,9 +27,9 @@ func main() {
 	app.Use(logger.New())
 
 	app.Use(cors.New(cors.Config{
-    AllowOrigins: "*",
-    AllowMethods: "GET,POST",
-    AllowHeaders: "Content-Type,Authorization",
+		AllowOrigins:     "https://pocketurl-project.vercel.app",
+		AllowMethods:     "GET,POST,OPTIONS",
+		AllowCredentials: true,
 }))
 	setupRoutes(app)
 
