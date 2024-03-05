@@ -38,7 +38,7 @@ const InputBox = ({
   const [shortLink, setShortLink] = React.useState("");
   const shortenLink = async () => {
     try {
-      const url = "http://localhost:3000/api/v1/";
+      const url = "https://shorten-url-doip.onrender.com/";
       const requestData = {
         url: longURL,
         short: customURL,
