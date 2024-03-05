@@ -38,7 +38,7 @@ const InputBox = ({
   const [shortLink, setShortLink] = React.useState("");
   const shortenLink = async () => {
     try {
-      const url = "https://shorten-url-doip.onrender.com/";
+      const url = "https://pocket-url-i8fk.onrender.com";
       const requestData = {
         url: longURL,
         short: customURL,
