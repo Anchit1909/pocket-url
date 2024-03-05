@@ -1,6 +1,7 @@
 package routes
 
 import (
+	"fmt"
 	"os"
 	"strconv"
 	"time"
@@ -65,6 +66,7 @@ func ShortenURL(c *fiber.Ctx) error {
  body.URL = helpers.EnforceHTTP(body.URL)
 
  var id string
+ fmt.Println(body)
  if body.CustomShort == "" {
 	id = uuid.New().String()[:6]
  } else {
