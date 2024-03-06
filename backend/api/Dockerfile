@@ -24,6 +24,4 @@ WORKDIR /app
 
 EXPOSE 3000
 
-ENV APP_PORT=3000
-
-CMD ["./main", "-addr", "0.0.0.0:3000"]
+CMD ["./main"]
