@@ -30,5 +30,6 @@ func main() {
 
 	setupRoutes(app)
 
-	log.Fatal(app.Listen(os.Getenv("APP_PORT")))
+	address := fmt.Sprintf("0.0.0.0:%s", os.Getenv("APP_PORT"))
+	log.Fatal(app.Listen(address))
 }
