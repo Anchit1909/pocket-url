@@ -26,11 +26,8 @@ func main() {
 	app:=fiber.New()
 	app.Use(logger.New())
 
-	app.Use(cors.New(cors.Config{
-		AllowOrigins:     "https://pocketurl-project.vercel.app",
-		AllowMethods:     "GET,POST,OPTIONS",
-		AllowCredentials: true,
-}))
+	app.Use(cors.New())
+
 	setupRoutes(app)
 
 	log.Fatal(app.Listen(os.Getenv("APP_PORT")))

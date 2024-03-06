@@ -35,7 +35,10 @@ func ShortenURL(c *fiber.Ctx) error {
 
  //implement rate limiting
 
- r2 := database.CreateClient(1)
+ r2, err := database.CreateClient(1)
+ if err!=nil {
+	fmt.Println("error");
+ }
  defer r2.Close()
  val, err := r2.Get(database.Ctx, c.IP()).Result()
  if err == redis.Nil {
@@ -73,7 +76,10 @@ func ShortenURL(c *fiber.Ctx) error {
 	id = body.CustomShort
  }
 
- r := database.CreateClient(0);
+ r, err := database.CreateClient(0);
+ if err!=nil {
+	fmt.Println("error");
+ }
  defer r.Close()
 
  val, _ = r.Get(database.Ctx, id).Result()

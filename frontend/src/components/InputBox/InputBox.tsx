@@ -47,7 +47,6 @@ const InputBox = ({
         headers: {
           "Content-Type": "application/json",
         },
-        withCredentials: true,
       });
       if (response.data.short) {
         setShortLink(response.data.short);
