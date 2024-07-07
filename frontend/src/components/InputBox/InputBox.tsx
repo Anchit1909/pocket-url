@@ -38,7 +38,7 @@ const InputBox = ({
   const [shortLink, setShortLink] = React.useState("");
   const shortenLink = async () => {
     try {
-      const url = "http://64.227.135.221:3000/api/v1";
+      const url = "https://pocketurl.anchitsinha.xyz/api/v1";
       const requestData = {
         url: longURL,
         short: customURL,
