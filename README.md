@@ -23,7 +23,7 @@
 
 ## Introduction
 
-PocketURL is an efficient URL shortener built in Go, utilizing the Fiber web framework for APIs and powered by Redis database. The frontend is developed with Next.js and Tailwind CSS.
+PocketURL is an efficient URL shortener built in Go, utilizing the Fiber web framework for APIs and powered by Redis database. The frontend is built with Next.js, Tailwind CSS and ShadCN UI.
 
 ## Tech Stack
 
