@@ -38,7 +38,7 @@ const InputBox = ({
   const [shortLink, setShortLink] = React.useState("");
   const shortenLink = async () => {
     try {
-      const url = "https://pocket-url-idou.onrender.com";
+      const url = "http://127.0.0.1:3000/api/v1";
       const requestData = {
         url: longURL,
         short: customURL,

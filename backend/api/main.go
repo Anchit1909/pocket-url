@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"log"
+	"os"
 
 	"github.com/Anchit1909/shorten-url/routes"
 	"github.com/gofiber/fiber/v2"
@@ -29,5 +30,5 @@ func main() {
 
 	setupRoutes(app)
 
-	log.Fatal(app.Listen("0.0.0.0:10000"))
+	log.Fatal(app.Listen(os.Getenv("APP_PORT")))
 }
