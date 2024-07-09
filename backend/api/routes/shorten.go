@@ -88,8 +88,8 @@ func ShortenURL(c *fiber.Ctx) error {
  }
 
  if body.Expiry == 0 {
-	body.Expiry = 24
- }
+	body.Expiry = 24 * 365
+}
 
  err = r.Set(database.Ctx, id, body.URL, body.Expiry*3600*time.Second).Err()
 
