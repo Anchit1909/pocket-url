@@ -35,7 +35,7 @@ function Header() {
             <div className="hidden items-center space-x-4 sm:flex"></div>
             <div className="flex justify-center items-center flex-row space-x-2">
               <a
-                href="https://github.com/Anchit1909/shorten-url"
+                href="https://github.com/Anchit1909/pocket-url"
                 target="_blank"
                 rel="noopener noreferrer"
               >
