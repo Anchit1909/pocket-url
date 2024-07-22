@@ -126,7 +126,10 @@ const InputBox = ({
   };
 
   return (
-    <Card className="w-[350px] sm:w-[450px]">
+    <Card className="w-[350px] sm:w-[500px] relative">
+      <div className="absolute w-[500px] h-[500px] 3xl:w-[700px] 3xl:h-[700px] -top-[200px] bg-purple-200/[35%] -z-10 rounded-full blur-3xl" />
+      <div className="absolute w-[500px] h-[500px] 3xl:w-[700px] 3xl:h-[700px] left-[150px] -top-[50px] bg-green-200/[35%] -z-10 rounded-full blur-3xl" />
+      <div className="absolute w-[500px] h-[500px] 3xl:w-[700px] 3xl:h-[700px] right-[150px] -top-[50px] bg-red-200/[35%] -z-10 rounded-full blur-3xl" />
       <CardHeader>
         <CardTitle>Shorten Links</CardTitle>
         <CardDescription>Simplest URL shortner in the market</CardDescription>
