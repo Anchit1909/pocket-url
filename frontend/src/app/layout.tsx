@@ -37,7 +37,7 @@ export default function RootLayout({
         className={cx(
           ibmPlexMono.variable,
           poppins.variable,
-          "overflow-x-hidden"
+          "overflow-x-hidden min-h-[100dvh] grid grid-rows-[auto_1fr_auto]"
         )}
       >
         <Header />
